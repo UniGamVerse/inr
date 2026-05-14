@@ -304,27 +304,116 @@ body.light .empty{
 @media(max-width:900px){
 
   body{
-    padding:10px;
+    padding:8px;
   }
 
   h1{
-    font-size:28px;
+    font-size:24px;
   }
 
   .subtitle{
+    font-size:12px;
+    margin-bottom:10px;
+  }
+
+  header{
+    padding-bottom:10px;
+  }
+
+  input{
+    padding:11px 12px;
     font-size:13px;
+    margin-bottom:10px;
+  }
+
+  .toolbar-title{
+    margin:8px 0 4px;
+    font-size:10px;
+  }
+
+  .filters{
+    gap:6px;
+    margin-bottom:8px;
   }
 
   button{
-    padding:7px 10px;
+    padding:6px 9px;
+    font-size:11px;
+    min-height:32px;
+  }
+
+  .theme-toggle{
+    transform:scale(.9);
+    transform-origin:top right;
+  }
+
+.table-wrapper{
+  width:100%;
+  max-height:none;
+  overflow-x:auto;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+}
+
+  .table-grid{
+    min-width:1250px;
+    gap:10px;
+
+    grid-template-columns:
+      240px
+      90px
+      55px
+      60px
+      80px
+      80px
+      100px
+      110px
+      110px
+      180px;
+  }
+
+  .table-header{
+    padding:10px;
+    font-size:10px;
+  }
+
+  .table-row{
+    padding:8px 10px;
+  }
+
+  .col{
+    min-height:24px;
     font-size:12px;
   }
 
-  .table-grid{
-    min-width:1600px;
+  .voce{
+    font-size:13px;
+  }
+
+  .inr{
+    font-size:22px;
+  }
+
+  .semaforo{
+    font-size:18px;
+  }
+
+  .legend-box{
+    margin-top:20px;
+    padding:14px;
+  }
+
+  .legend-title{
+    font-size:14px;
+  }
+
+  .legend-item{
+    font-size:12px;
+    line-height:1.5;
   }
 
 }
+
 
 .legend-box{
   margin-top:40px;
@@ -356,4 +445,19 @@ body.light .legend-box{
 
 body.light .legend-title{
   color:#0f172a;
+}
+
+html,
+body{
+  width:100%;
+  overflow-x:auto;
+}
+
+body{
+  touch-action:pan-x pan-y;
+}
+
+.app{
+  width:100%;
+  min-width:0;
 }
