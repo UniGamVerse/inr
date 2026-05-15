@@ -509,10 +509,18 @@ body.light .legend-title{
     content:none;
   }
 
-  .table-row .semaforo,
-  .table-row .inr{
-    justify-content:flex-start;
-  }
+.table-row .semaforo,
+.table-row .inr{
+  justify-content:flex-start;
+  display:inline-flex;
+  width:auto;
+}
+
+.table-row .semaforo{
+
+  margin-right:10px;
+
+}
 
   .table-row .semaforo::before{
     content:"Sem";
