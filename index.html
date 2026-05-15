@@ -5,48 +5,25 @@
 
 <meta charset="UTF-8">
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Dashboard INR</title>
-
 <link rel="stylesheet" href="styles.css">
-
 </head>
-
 <body>
-
 <div class="app">
-
 <header>
 
 <h1>Dashboard INR</h1>
-
 <button class="theme-toggle" onclick="toggleTheme()">🌙 / ☀️</button>
 
-<p class="subtitle">
-Warfarin / Coumadin · stabilità alimentare
-</p>
+<p class="subtitle">Warfarin / Coumadin · stabilità alimentare</p>
 
-<input
-  type="text"
-  id="search"
-  placeholder="Cerca alimento, piatto, nota..."
->
+<input type="text" id="search" placeholder="Cerca alimento, piatto, nota...">
 
 <div class="toolbar-title">Semaforo</div>
-
 <div class="filters">
-
-<button
-  class="active"
-  data-group="sem"
-  onclick="setSemFilter('all');setActive('sem',this)"
->
-Tutti
-</button>
+<button class="active" data-group="sem" onclick="setSemFilter('all');setActive('sem',this)">Tutti</button>
 
 <button data-group="sem" onclick="setSemFilter('verde');setActive('sem',this)">🟢</button>
 <button data-group="sem" onclick="setSemFilter('giallo');setActive('sem',this)">🟡</button>
@@ -59,111 +36,25 @@ Tutti
 
 <div class="filters">
 
-<button
-  class="active"
-  data-group="type"
-  onclick="setTypeFilter('all');setActive('type',this)"
->
-Tutto
-</button>
-
-<button
-  data-group="type"
-  onclick="setTypeFilter('alimento');setActive('type',this)"
->
-Alimenti
-</button>
-
-<button
-  data-group="type"
-  onclick="setTypeFilter('piatto');setActive('type',this)"
->
-Piatti
-</button>
-
-<button
-  data-group="type"
-  onclick="setTypeFilter('bbq');setActive('type',this)"
->
-BBQ
-</button>
-
-<button
-  data-group="type"
-  onclick="setTypeFilter('stabilizzatore');setActive('type',this)"
->
-Stabilizzatori
-</button>
-
-<button
-  data-group="type"
-  onclick="setTypeFilter('safe');setActive('type',this)"
->
-🟢 Safe foods
-</button>
+<button class="active" data-group="type" onclick="setTypeFilter('all');setActive('type',this)">Tutto</button>
+<button data-group="type" onclick="setTypeFilter('alimento');setActive('type',this)">Alimenti</button>
+<button data-group="type" onclick="setTypeFilter('piatto');setActive('type',this)">Piatti</button>
+<button data-group="type" onclick="setTypeFilter('bbq');setActive('type',this)">BBQ</button>
+<button data-group="type" onclick="setTypeFilter('stabilizzatore');setActive('type',this)">Stabilizzatori</button>
+<button data-group="type" onclick="setTypeFilter('safe');setActive('type',this)">🟢 Safe foods</button>
 
 </div>
 
-<div class="toolbar-title">Categoria</div>
-
-<div
-  id="categoryFilters"
-  class="filters"
-></div>
-
 <div class="toolbar-title">Ordina</div>
-
 <div class="filters">
 
-<button
-  data-group="sort"
-  onclick="sortFoods('semDesc');setActive('sort',this)"
->
-🔴→🟢
-</button>
-
-<button
-  data-group="sort"
-  onclick="sortFoods('semAsc');setActive('sort',this)"
->
-🟢→🔴
-</button>
-
-<button
-  data-group="sort"
-  onclick="sortFoods('stabAsc');setActive('sort',this)"
->
-Stab. ↓
-</button>
-
-<button
-  data-group="sort"
-  onclick="sortFoods('stabDesc');setActive('sort',this)"
->
-Stab. ↑
-</button>
-
-<button
-  class="active"
-  data-group="sort"
-  onclick="sortFoods('alpha');setActive('sort',this)"
->
-A→Z
-</button>
-
-<button
-  data-group="sort"
-  onclick="sortFoods('inrAsc');setActive('sort',this)"
->
-INR ↓→↑
-</button>
-
-<button
-  data-group="sort"
-  onclick="sortFoods('inrDesc');setActive('sort',this)"
->
-INR ↑→↓
-</button>
+<button data-group="sort" onclick="sortFoods('semDesc');setActive('sort',this)">🔴→🟢</button>
+<button data-group="sort" onclick="sortFoods('semAsc');setActive('sort',this)">🟢→🔴</button>
+<button data-group="sort" onclick="sortFoods('stabAsc');setActive('sort',this)">Stab. ↓</button>
+<button data-group="sort" onclick="sortFoods('stabDesc');setActive('sort',this)">Stab. ↑</button>
+<button class="active" data-group="sort" onclick="sortFoods('alpha');setActive('sort',this)">A→Z</button>
+<button data-group="sort" onclick="sortFoods('inrAsc');setActive('sort',this)">INR ↓→↑</button>
+<button data-group="sort" onclick="sortFoods('inrDesc');setActive('sort',this)">INR ↑→↓</button>
 
 </div>
 
@@ -172,7 +63,6 @@ INR ↑→↓
 <div class="table-header table-grid">
 
 <div>Voce</div>
-<div>Categoria</div>
 <div>Sem.</div>
 <div>INR</div>
 <div>Var.</div>

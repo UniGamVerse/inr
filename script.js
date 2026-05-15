@@ -4,7 +4,6 @@ let foods=[];
 
 let currentSemFilter="all";
 let currentTypeFilter="all";
-let currentCategoryFilter="all";
 let currentSort="alpha";
 
 const semRank={
@@ -109,8 +108,6 @@ async function loadFoods(){
 
       }));
 
-      buildCategoryButtons();
-
       renderFoods();
 
     }
@@ -119,53 +116,6 @@ async function loadFoods(){
 
 }
 
-function buildCategoryButtons(){
-
-  const container=
-    document.getElementById("categoryFilters");
-
-  const categories=[...new Set(
-
-    foods
-      .map(food=>food.categoria)
-      .filter(Boolean)
-
-  )].sort();
-
-  container.innerHTML=`
-
-    <button
-      class="active"
-      data-group="category"
-      onclick="
-        setCategoryFilter('all');
-        setActive('category',this)
-      "
-    >
-      Tutte
-    </button>
-
-  `;
-
-  categories.forEach(category=>{
-
-    container.innerHTML+=`
-
-      <button
-        data-group="category"
-        onclick="
-          setCategoryFilter('${category}');
-          setActive('category',this)
-        "
-      >
-        ${category}
-      </button>
-
-    `;
-
-  });
-
-}
 
 function sortFiltered(items){
 
@@ -311,13 +261,11 @@ function renderFoods(){
 
       &&
 
-      (currentTypeFilter==="all" ||
-       food.tipo===currentTypeFilter)
-
-      &&
-
-      (currentCategoryFilter==="all" ||
-       food.categoria===currentCategoryFilter)
+(currentTypeFilter==="all" ||
+ food.tipo
+   .split(",")
+   .map(t=>t.trim())
+   .includes(currentTypeFilter))
 
     );
 
@@ -364,10 +312,6 @@ function renderFoods(){
 
           <div class="col voce">
             ${food.voce}
-          </div>
-
-          <div class="col categoria">
-            ${food.categoria}
           </div>
 
           <div class="col semaforo">
@@ -442,13 +386,6 @@ function setTypeFilter(value){
 
 }
 
-function setCategoryFilter(value){
-
-  currentCategoryFilter=value;
-
-  renderFoods();
-
-}
 
 function sortFoods(value){
 

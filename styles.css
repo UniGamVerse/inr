@@ -158,17 +158,16 @@ body.light button.active{
 
 .table-grid{
   display:grid;
-  grid-template-columns:
-    360px
-    120px
-    70px
-    80px
-    100px
-    100px
-    120px
-    140px
-    140px
-    260px;
+grid-template-columns:
+  360px
+  70px
+  80px
+  100px
+  100px
+  120px
+  140px
+  140px
+  260px;
   gap:14px;
   align-items:center;
   min-width:1600px;
@@ -356,20 +355,19 @@ body.light .empty{
 }
 
   .table-grid{
-    min-width:1250px;
+    min-width:1025px;
     gap:10px;
 
-    grid-template-columns:
-      240px
-      90px
-      55px
-      60px
-      80px
-      80px
-      100px
-      110px
-      110px
-      180px;
+grid-template-columns:
+  220px
+  50px
+  55px
+  70px
+  70px
+  90px
+  100px
+  100px
+  170px;
   }
 
   .table-header{
