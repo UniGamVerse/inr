@@ -342,13 +342,21 @@ function renderFoods(){
             ${food.tempoEffetto}
           </div>
 
-          <div class="col">
-            ${food.abituale}
-          </div>
+<div class="col dose">
 
-          <div class="col critica">
-            ${food.critica}
-          </div>
+  <span class="dose-normal">
+    ${food.abituale}
+  </span>
+
+  <span class="dose-sep">
+    |
+  </span>
+
+  <span class="dose-critica">
+    ${food.critica}
+  </span>
+
+</div>
 
           <div class="col note">
             ${food.note}
