@@ -1,140 +1,108 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>INR sotto controllo</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INR sotto controllo</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-<div class="app">
-<header>
+  <div class="app">
 
-<h1>INR sotto controllo</h1>
-<button class="theme-toggle" onclick="toggleTheme()">🌙 / ☀️</button>
+    <header>
+      <h1>INR sotto controllo</h1>
 
-<p class="subtitle">Warfarin/Coumadin per la stabilità alimentare</p>
+      <button class="theme-toggle" onclick="toggleTheme()">🌙 / ☀️</button>
 
-<input type="text" id="search" placeholder="Cerca alimento, piatto, nota...">
+      <p class="subtitle">Warfarin/Coumadin per la stabilità alimentare</p>
 
-<div class="toolbar-title">Semaforo</div>
-<div class="filters">
-<button class="active" data-group="sem" onclick="setSemFilter('all');setActive('sem',this)">Tutti</button>
-<button data-group="sem" onclick="setSemFilter('verde');setActive('sem',this)">🟢</button>
-<button data-group="sem" onclick="setSemFilter('giallo');setActive('sem',this)">🟡</button>
-<button data-group="sem" onclick="setSemFilter('arancione');setActive('sem',this)">🟠</button>
-<button data-group="sem" onclick="setSemFilter('rosso');setActive('sem',this)">🔴</button>
+      <input
+        type="text"
+        id="search"
+        placeholder="Cerca alimento, piatto, nota..."
+      >
 
-</div>
+      <div class="toolbar-title">Semaforo</div>
+      <div class="filters">
+        <button class="active" data-group="sem" onclick="setSemFilter('all');setActive('sem',this)">Tutti</button>
+        <button data-group="sem" onclick="setSemFilter('verde');setActive('sem',this)">🟢</button>
+        <button data-group="sem" onclick="setSemFilter('giallo');setActive('sem',this)">🟡</button>
+        <button data-group="sem" onclick="setSemFilter('arancione');setActive('sem',this)">🟠</button>
+        <button data-group="sem" onclick="setSemFilter('rosso');setActive('sem',this)">🔴</button>
+      </div>
 
-<div class="toolbar-title">Tipo</div>
-<div class="filters">
-<button class="active" data-group="type" onclick="setTypeFilter('all');setActive('type',this)">Tutto</button>
-<button data-group="type" onclick="setTypeFilter('alimento');setActive('type',this)">Alimenti</button>
-<button data-group="type" onclick="setTypeFilter('piatto');setActive('type',this)">Piatti</button>
-<button data-group="type" onclick="setTypeFilter('bbq');setActive('type',this)">BBQ</button>
-<button data-group="type" onclick="setTypeFilter('stabilizzatore');setActive('type',this)">Stabilizzatori</button>
-<button data-group="type" onclick="setTypeFilter('safe');setActive('type',this)">🟢 Safe foods</button>
+      <div class="toolbar-title">Tipo</div>
+      <div class="filters">
+        <button class="active" data-group="type" onclick="setTypeFilter('all');setActive('type',this)">Tutto</button>
+        <button data-group="type" onclick="setTypeFilter('alimento');setActive('type',this)">Alimenti</button>
+        <button data-group="type" onclick="setTypeFilter('piatto');setActive('type',this)">Piatti</button>
+        <button data-group="type" onclick="setTypeFilter('bbq');setActive('type',this)">BBQ</button>
+        <button data-group="type" onclick="setTypeFilter('stabilizzatore');setActive('type',this)">Stabilizzatori</button>
+        <button data-group="type" onclick="setTypeFilter('safe');setActive('type',this)">🟢 Safe foods</button>
+      </div>
 
-</div>
+      <div class="toolbar-title">Ordina</div>
+      <div class="filters">
+        <button class="active" data-group="sort" onclick="sortFoods('alpha');setActive('sort',this)">A→Z</button>
+        <button data-group="sort" onclick="sortFoods('semDesc');setActive('sort',this)">🔴→🟢</button>
+        <button data-group="sort" onclick="sortFoods('semAsc');setActive('sort',this)">🟢→🔴</button>
+        <button data-group="sort" onclick="sortFoods('stabAsc');setActive('sort',this)">Stab. ↓</button>
+        <button data-group="sort" onclick="sortFoods('stabDesc');setActive('sort',this)">Stab. ↑</button>
+        <button data-group="sort" onclick="sortFoods('inrAsc');setActive('sort',this)">INR ↓→↑</button>
+        <button data-group="sort" onclick="sortFoods('inrDesc');setActive('sort',this)">INR ↑→↓</button>
+      </div>
+    </header>
 
-<div class="toolbar-title">Ordina</div>
-<div class="filters">
-<button class="active" data-group="sort" onclick="sortFoods('alpha');setActive('sort',this)">A→Z</button>
-<button data-group="sort" onclick="sortFoods('semDesc');setActive('sort',this)">🔴→🟢</button>
-<button data-group="sort" onclick="sortFoods('semAsc');setActive('sort',this)">🟢→🔴</button>
-<button data-group="sort" onclick="sortFoods('stabAsc');setActive('sort',this)">Stab. ↓</button>
-<button data-group="sort" onclick="sortFoods('stabDesc');setActive('sort',this)">Stab. ↑</button>
-<button data-group="sort" onclick="sortFoods('inrAsc');setActive('sort',this)">INR ↓→↑</button>
-<button data-group="sort" onclick="sortFoods('inrDesc');setActive('sort',this)">INR ↑→↓</button>
+    <div class="table-header table-grid">
+      <div>Voce</div>
+      <div>Sem.</div>
+      <div>INR</div>
+      <div>Var.</div>
+      <div>Stab.</div>
+      <div>Effetto</div>
+      <div>Dose</div>
+      <div>Note</div>
+    </div>
 
-</div>
+    <div class="table-wrapper">
+      <main id="foodContainer"></main>
 
-</header>
+      <div class="legend-box">
+        <div class="legend-title">Legenda clinica INR</div>
 
-<div class="table-header table-grid">
+        <div class="legend-item">
+          <strong>Var. (Variabilità)</strong><br>
+          Indica quanto l’effetto sull’INR può cambiare in base a quantità assunta,
+          frequenza, preparazione, conservazione e differenze individuali.
+          <br><br>
+          Variabilità alta = risposta meno prevedibile.
+        </div>
 
-<div>Voce</div>
-<div>Sem.</div>
-<div>INR</div>
-<div>Var.</div>
-<div>Stab.</div>
-<div>Effetto</div>
-<div>Dose</div>
-<div>Note</div>
+        <div class="legend-item">
+          <strong>Stab. (Stabilità)</strong><br>
+          Indica quanto l’effetto sull’INR tende a rimanere costante nel tempo se
+          l’alimento viene consumato in modo regolare e simile.
+          <br><br>
+          Stabilità alta = comportamento più prevedibile e gestibile.
+        </div>
 
-</div>
+        <div class="legend-item">
+          <strong>Esempio pratico</strong><br>
+          Gli spinaci hanno:
+          <br>
+          • variabilità alta → piccole differenze di quantità possono modificare molto l’INR
+          <br>
+          • stabilità alta → se consumati sempre nello stesso modo, l’effetto tende però a essere coerente.
+        </div>
+      </div>
+    </div>
 
-<div class="table-wrapper">
+  </div>
 
-<main id="foodContainer"></main>
+  <button id="backToTop" onclick="scrollToTop()">↑</button>
 
-<div class="legend-box">
-
-<div class="legend-title">
-Legenda clinica INR
-</div>
-
-<div class="legend-item">
-
-<strong>Var. (Variabilità)</strong><br>
-
-indica quanto l’effetto sull’INR può cambiare in base a:
-quantità assunta, frequenza, preparazione,
-conservazione e differenze individuali.
-
-<br><br>
-
-Variabilità alta = risposta meno prevedibile.
-
-</div>
-
-<div class="legend-item">
-
-<strong>Stab. (Stabilità)</strong><br>
-
-indica quanto l’effetto sull’INR tende a rimanere
-costante nel tempo se l’alimento viene consumato
-in modo regolare e simile.
-
-<br><br>
-
-Stabilità alta = comportamento più prevedibile e gestibile.
-
-</div>
-
-<div class="legend-item">
-
-<strong>Esempio pratico</strong><br>
-
-Gli spinaci hanno:
-
-<br>
-
-• variabilità alta → piccole differenze di quantità
-possono modificare molto l’INR
-
-<br>
-
-• stabilità alta → se consumati sempre nello stesso modo,
-l’effetto tende però a essere coerente e prevedibile.
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<button id="backToTop" onclick="scrollToTop()">↑</button>
-
-<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
-<script src="script.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
