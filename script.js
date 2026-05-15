@@ -205,7 +205,9 @@ if(currentSort==="inrDesc"){
 }
 
 function groupByType(items){
+
   let grouped={};
+
   items.forEach(item=>{
 
     const types=
@@ -216,20 +218,25 @@ function groupByType(items){
         .filter(Boolean);
 
     if(types.length===0) return;
-    const primaryType=types[0];
-    if(!grouped[primaryType]){
-      grouped[primaryType]=[];
+
+    const groupType =
+      currentTypeFilter !== "all"
+        ? currentTypeFilter
+        : types[0];
+
+    if(!grouped[groupType]){
+
+      grouped[groupType]=[];
 
     }
 
-    grouped[primaryType].push(item);
+    grouped[groupType].push(item);
 
   });
 
   return grouped;
 
 }
-
 
 
 function renderFoods(){
