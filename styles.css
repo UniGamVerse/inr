@@ -425,7 +425,7 @@ body.light .legend-title{
   .table-row .col::before{
     font-weight:900;
     color:#94a3b8;
-    min-width:88px;
+    min-width:58px;
     flex-shrink:0;
   }
 
@@ -439,13 +439,6 @@ body.light .legend-title{
     content:none;
   }
 
-  .table-row .semaforo::before{
-    content:"Sem";
-  }
-
-  .table-row .inr::before{
-    content:"INR";
-  }
 
   .table-row .variabilita::before{
     content:"Var";
@@ -467,22 +460,15 @@ body.light .legend-title{
     content:"Note";
   }
 
-  .table-row .semaforo,
-  .table-row .inr{
-    justify-content:space-between;
-  }
+.dose{
 
-  .table-row .semaforo{
-    font-size:20px;
-  }
+  justify-content:flex-end;
 
-  .table-row .inr{
-    font-size:22px;
-  }
+  text-align:right;
 
-  .dose{
-    justify-content:space-between;
-  }
+  gap:6px;
+
+}
 
   .legend-box{
     margin-top:22px;
@@ -497,6 +483,31 @@ body.light .legend-title{
     font-size:12px;
     line-height:1.5;
   }
+
+.mobile-top{
+
+  display:flex;
+  align-items:center;
+  gap:14px;
+
+  margin-bottom:2px;
+
+}
+
+.mobile-sem{
+
+  font-size:26px;
+  line-height:1;
+
+}
+
+.mobile-inr{
+
+  font-size:34px;
+  font-weight:900;
+  line-height:1;
+
+}
 
 }
 

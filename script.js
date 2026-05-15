@@ -322,12 +322,16 @@ function renderFoods(){
             ${food.voce}
           </div>
 
-<div class="col semaforo">
-  ${getSemEmoji(food.semaforo)}
-</div>
+<div class="mobile-top">
 
-<div class="col inr">
-  ${food.inr}
+  <div class="mobile-sem">
+    ${getSemEmoji(food.semaforo)}
+  </div>
+
+  <div class="mobile-inr">
+    ${food.inr}
+  </div>
+
 </div>
 
 <div class="col variabilita">
