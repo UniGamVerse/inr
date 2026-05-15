@@ -205,31 +205,32 @@ if(currentSort==="inrDesc"){
 }
 
 function groupByType(items){
-
   let grouped={};
-
   items.forEach(item=>{
 
-    const type=
+    const types=
       String(item.tipo || "")
         .toLowerCase()
-        .trim();
+        .split(",")
+        .map(t=>t.trim())
+        .filter(Boolean);
 
-    if(!type) return;
-
-    if(!grouped[type]){
-
-      grouped[type]=[];
+    if(types.length===0) return;
+    const primaryType=types[0];
+    if(!grouped[primaryType]){
+      grouped[primaryType]=[];
 
     }
 
-    grouped[type].push(item);
+    grouped[primaryType].push(item);
 
   });
 
   return grouped;
 
 }
+
+
 
 function renderFoods(){
 
