@@ -322,25 +322,29 @@ function renderFoods(){
             ${food.voce}
           </div>
 
-          <div class="col semaforo">
-            ${getSemEmoji(food.semaforo)}
-          </div>
+<div class="topline">
 
-          <div class="col inr">
-            ${food.inr}
-          </div>
+  <div class="col semaforo">
+    ${getSemEmoji(food.semaforo)}
+  </div>
 
-          <div class="col">
-            ${food.variabilita}
-          </div>
+  <div class="col inr">
+    ${food.inr}
+  </div>
 
-          <div class="col">
-            ${food.stabilita}
-          </div>
+</div>
 
-          <div class="col">
-            ${food.tempoEffetto}
-          </div>
+<div class="col variabilita">
+  ${food.variabilita}
+</div>
+
+<div class="col stabilita">
+  ${food.stabilita}
+</div>
+
+<div class="col effetto">
+  ${food.tempoEffetto}
+</div>
 
 <div class="col dose">
 

@@ -17,21 +17,48 @@ body.light{
   color:#0f172a;
 }
 
+html,
+body{
+  width:100%;
+  overflow-x:hidden;
+}
+
+body{
+  touch-action:pan-x pan-y;
+}
+
 .app{
   max-width:1800px;
   margin:auto;
+  width:100%;
+  min-width:0;
 }
 
+/* HEADER */
+
 header{
+
   position:sticky;
   top:0;
+
   z-index:9999;
+
   background:#0f172a;
-  padding-bottom:14px;
+
+  padding-bottom:10px;
+
+  backdrop-filter:blur(10px);
+
+  border-bottom:1px solid #334155;
+
 }
 
 body.light header{
-  background:#f1f5f9;
+
+  background:rgba(241,245,249,.92);
+
+  border-bottom:1px solid #cbd5e1;
+
 }
 
 h1{
@@ -53,6 +80,8 @@ h1{
   right:0;
 }
 
+/* SEARCH */
+
 input{
   width:100%;
   padding:13px 14px;
@@ -69,6 +98,8 @@ body.light input{
   color:#0f172a;
   border:1px solid #cbd5e1;
 }
+
+/* TOOLBAR */
 
 .toolbar-title{
   font-size:11px;
@@ -127,8 +158,10 @@ body.light button.active{
     0 4px 12px rgba(217,119,6,.25);
 }
 
+/* TABLE */
+
 .table-wrapper{
-  margin-top:0px;
+  margin-top:0;
   overflow:auto;
   max-height:calc(100vh - 340px);
   padding-bottom:20px;
@@ -144,7 +177,7 @@ body.light button.active{
 }
 
 #foodContainer{
-  min-width:1600px;
+  min-width:0;
 }
 
 .section-title{
@@ -158,18 +191,19 @@ body.light button.active{
 
 .table-grid{
   display:grid;
-grid-template-columns:
-  340px
-  70px
-  80px
-  90px
-  90px
-  120px
-  180px
-  260px;
+
+  grid-template-columns:
+    340px
+    70px
+    80px
+    90px
+    90px
+    120px
+    180px
+    260px;
+
   gap:14px;
   align-items:center;
-  min-width:1600px;
 }
 
 .table-header{
@@ -197,12 +231,15 @@ body.light .table-header{
   height:22px;
 }
 
+/* ROW */
+
 .table-row{
   background:#1e293b;
   border:1px solid #334155;
   border-radius:16px;
   padding:10px 14px;
   margin-bottom:8px;
+
   transition:
     background .15s,
     border-color .15s,
@@ -214,6 +251,7 @@ body.light .table-header{
   background:#334155;
   border-color:#60a5fa;
   transform:translateY(-1px);
+
   box-shadow:
     0 0 0 1px #60a5fa,
     0 6px 18px rgba(0,0,0,.22);
@@ -227,10 +265,13 @@ body.light .table-row{
 body.light .table-row:hover{
   background:#f8fafc;
   border-color:#3b82f6;
+
   box-shadow:
     0 0 0 1px #3b82f6,
     0 6px 16px rgba(0,0,0,.08);
 }
+
+/* CELLS */
 
 .col{
   display:flex;
@@ -246,15 +287,6 @@ body.light .table-row:hover{
   font-weight:900;
 }
 
-.categoria{
-  color:#cbd5e1;
-  font-weight:700;
-}
-
-body.light .categoria{
-  color:#475569;
-}
-
 .semaforo{
   justify-content:center;
   font-size:22px;
@@ -268,25 +300,49 @@ body.light .categoria{
   line-height:1;
 }
 
+.table-header div:nth-child(2),
 .table-header div:nth-child(3),
-.table-header div:nth-child(4),
-.table-row div:nth-child(3),
-.table-row div:nth-child(4){
+.table-row div:nth-child(2),
+.table-row div:nth-child(3){
   justify-content:center;
 }
 
-.critica{
-  color:#fca5a5;
-  font-weight:900;
+/* DOSE */
+
+.dose{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  flex-wrap:wrap;
 }
+
+.dose-normal{
+  font-weight:700;
+}
+
+.dose-sep{
+  opacity:.45;
+}
+
+.dose-critica{
+  color:#f87171;
+  font-weight:900;
+  font-size:15px;
+}
+
+/* NOTE */
 
 .note{
   color:#cbd5e1;
+  opacity:.88;
+  line-height:1.4;
 }
 
 body.light .note{
   color:#334155;
 }
+
+/* EMPTY */
 
 .empty{
   margin-top:20px;
@@ -298,6 +354,42 @@ body.light .note{
 body.light .empty{
   background:white;
 }
+
+/* LEGEND */
+
+.legend-box{
+  margin-top:40px;
+  padding:18px 20px;
+  background:#111827;
+  border:1px solid #334155;
+  border-radius:18px;
+  color:#cbd5e1;
+  line-height:1.6;
+}
+
+.legend-title{
+  font-size:15px;
+  font-weight:900;
+  margin-bottom:10px;
+  color:#f8fafc;
+}
+
+.legend-item{
+  font-size:14px;
+  margin-bottom:8px;
+}
+
+body.light .legend-box{
+  background:#ffffff;
+  border:1px solid #cbd5e1;
+  color:#334155;
+}
+
+body.light .legend-title{
+  color:#0f172a;
+}
+
+/* MOBILE */
 
 @media(max-width:900px){
 
@@ -345,136 +437,124 @@ body.light .empty{
     transform-origin:top right;
   }
 
-.table-wrapper{
-  width:100%;
-  max-height:none;
-  overflow-x:auto;
-  overflow-y:auto;
-  -webkit-overflow-scrolling:touch;
-}
-
-  .table-grid{
-    min-width:920px;
-    gap:10px;
-
-grid-template-columns:
-  210px
-  45px
-  55px
-  65px
-  65px
-  90px
-  150px
-  170px;
+  .table-header{
+    display:none;
   }
 
-  .table-header{
-    padding:10px;
-    font-size:10px;
+  .section-title{
+    margin:18px 0 8px;
+    font-size:16px;
+  }
+
+  .table-wrapper{
+    overflow:visible;
+    max-height:none;
+  }
+
+  .table-grid{
+    display:block;
   }
 
   .table-row{
-    padding:8px 10px;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:6px;
+
+    padding:12px;
+
+    border-radius:16px;
+
   }
 
-  .col{
-    min-height:24px;
-    font-size:12px;
-  }
+  .table-row .col{
 
-  .voce{
+    display:flex;
+
+    align-items:flex-start;
+    justify-content:space-between;
+
+    gap:12px;
+
+    width:100%;
+
+    min-height:auto;
+
     font-size:13px;
+
   }
 
-  .inr{
+  .table-row .col::before{
+
+    font-weight:900;
+    color:#94a3b8;
+
+    min-width:88px;
+
+    flex-shrink:0;
+
+  }
+
+  .table-row .voce{
+
+    font-size:16px;
+    line-height:1.15;
+
+    margin-bottom:2px;
+
+  }
+
+  .table-row .voce::before{
+    content:none;
+  }
+
+  .table-row .semaforo,
+  .table-row .inr{
+    justify-content:flex-start;
+  }
+
+  .table-row .semaforo::before{
+    content:"Sem";
+  }
+
+  .table-row .inr::before{
+    content:"INR";
+  }
+
+  .table-row .variabilita::before{
+    content:"Var";
+  }
+
+  .table-row .stabilita::before{
+    content:"Stab";
+  }
+
+  .table-row .effetto::before{
+    content:"Effetto";
+  }
+
+  .table-row .dose::before{
+    content:"Dose";
+  }
+
+  .table-row .note::before{
+    content:"Note";
+  }
+
+  .topline{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:4px;
+  }
+
+  .topline .semaforo{
     font-size:22px;
   }
 
-  .semaforo{
-    font-size:18px;
+  .topline .inr{
+    font-size:24px;
   }
 
-  .legend-box{
-    margin-top:20px;
-    padding:14px;
-  }
-
-  .legend-title{
-    font-size:14px;
-  }
-
-  .legend-item{
-    font-size:12px;
-    line-height:1.5;
-  }
-
-}
-
-
-.legend-box{
-  margin-top:40px;
-  padding:18px 20px;
-  background:#111827;
-  border:1px solid #334155;
-  border-radius:18px;
-  color:#cbd5e1;
-  line-height:1.6;
-}
-
-.legend-title{
-  font-size:15px;
-  font-weight:900;
-  margin-bottom:10px;
-  color:#f8fafc;
-}
-
-.legend-item{
-  font-size:14px;
-  margin-bottom:8px;
-}
-
-body.light .legend-box{
-  background:#ffffff;
-  border:1px solid #cbd5e1;
-  color:#334155;
-}
-
-body.light .legend-title{
-  color:#0f172a;
-}
-
-html,
-body{
-  width:100%;
-  overflow-x:auto;
-}
-
-body{
-  touch-action:pan-x pan-y;
-}
-
-.app{
-  width:100%;
-  min-width:0;
-}
-
-
-.dose{
-  display:flex;
-  align-items:center;
-  gap:6px;
-  flex-wrap:wrap;
-}
-
-.dose-normal{
-  font-weight:700;
-}
-
-.dose-sep{
-  opacity:.45;
-}
-
-.dose-critica{
-  color:#fca5a5;
-  font-weight:900;
 }
