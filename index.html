@@ -24,7 +24,6 @@
 <div class="toolbar-title">Semaforo</div>
 <div class="filters">
 <button class="active" data-group="sem" onclick="setSemFilter('all');setActive('sem',this)">Tutti</button>
-
 <button data-group="sem" onclick="setSemFilter('verde');setActive('sem',this)">🟢</button>
 <button data-group="sem" onclick="setSemFilter('giallo');setActive('sem',this)">🟡</button>
 <button data-group="sem" onclick="setSemFilter('arancione');setActive('sem',this)">🟠</button>
@@ -33,9 +32,7 @@
 </div>
 
 <div class="toolbar-title">Tipo</div>
-
 <div class="filters">
-
 <button class="active" data-group="type" onclick="setTypeFilter('all');setActive('type',this)">Tutto</button>
 <button data-group="type" onclick="setTypeFilter('alimento');setActive('type',this)">Alimenti</button>
 <button data-group="type" onclick="setTypeFilter('piatto');setActive('type',this)">Piatti</button>
@@ -47,12 +44,11 @@
 
 <div class="toolbar-title">Ordina</div>
 <div class="filters">
-
+<button class="active" data-group="sort" onclick="sortFoods('alpha');setActive('sort',this)">A→Z</button>
 <button data-group="sort" onclick="sortFoods('semDesc');setActive('sort',this)">🔴→🟢</button>
 <button data-group="sort" onclick="sortFoods('semAsc');setActive('sort',this)">🟢→🔴</button>
 <button data-group="sort" onclick="sortFoods('stabAsc');setActive('sort',this)">Stab. ↓</button>
 <button data-group="sort" onclick="sortFoods('stabDesc');setActive('sort',this)">Stab. ↑</button>
-<button class="active" data-group="sort" onclick="sortFoods('alpha');setActive('sort',this)">A→Z</button>
 <button data-group="sort" onclick="sortFoods('inrAsc');setActive('sort',this)">INR ↓→↑</button>
 <button data-group="sort" onclick="sortFoods('inrDesc');setActive('sort',this)">INR ↑→↓</button>
 
